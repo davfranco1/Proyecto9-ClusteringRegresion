@@ -45,7 +45,7 @@ El proyecto está construido de la siguiente manera:
 
 - **images/**: Carpeta que contiene archivos de imagen generados durante la ejecución del código o de fuentes externas.
 
-- **notebooks/**: Carpeta que contiene los archivos `.ipynb` utilizados en el preprocesamiento y modelado de los datos. Dentro, dos carpetas, una para los modelos de clustering y otra para los de regresión. Dentro de "regresión", están numerados para su ejecución secuencial, y contenidos dentro de X carpetas, una para cada modelo, conteniendo cada una de ellas:
+- **notebooks/**: Carpeta que contiene los archivos `.ipynb` utilizados en el preprocesamiento y modelado de los datos. Dentro, dos carpetas, una para los modelos de *clustering* y otra para los de *regresión*. Dentro de "regresión", están numerados para su ejecución secuencial, y contenidos dentro de carpetas, una para cada modelo, conteniendo cada una de ellas:
   - `1_EDA`
   - `2_Encoding`
   - `3_Outliers`
@@ -112,14 +112,7 @@ El proyecto está construido de la siguiente manera:
 
 ## Resultados y conclusiones
 
-- Disponible para descargar [aquí](Resumen.pdf) un PDF resumen con la presentación de los datos, los resultados y conclusiones.
-
-
-## Próximos pasos
-
-- Crear una plataforma de consulta usando streamlit, que incluya un mapa de calor con los resultados de beneficios por región.
-- Dedicar más tiempo a mejorar los resultados de los modelos de regresión.
-- Crear un modelo de clustering que no incluya a la variable "Profit".
+- Disponible para descargar [aquí](Resumen.pdf) un PDF resumen con la presentación de los datos, los resultados, conclusiones y próximos pasos.
 
 
 ## Autor
