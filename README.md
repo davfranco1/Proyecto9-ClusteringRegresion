@@ -1,6 +1,6 @@
 # Proyecto 9: Clustering y Modelos de Regresión
 
-![imagen](images/header.jpg)
+![imagen](images/header.png)
 
 
 ## Planteamiento del problema 📦📊
@@ -109,33 +109,18 @@ El proyecto está construido de la siguiente manera:
 
 4. Ejecuta el código en los notebooks, modificándolo si es necesario.
 
-5. Para utilizar la app de Streamlit (que llama a una API de flask para la consulta) y realizar una predicción, tras copiar el repositorio:
-   - Abre una terminal en la carpeta `flask`, y ejecuta el comando `python main.py`, que abrirá una terminal que servirá para el debugging y pondrá en marcha el servidor.
-   - Sin cerrarla la anterior, abre otra terminal en la carpeta `streamlit`, y ejecuta el comando `streamlit run main.py`, que abrirá un navegador donde se ejecuta automáticamente el código.
-   - Recuerda que antes, debes haber instalado las librerías correspondientes (flask y streamlit).
+
+## Resultados y conclusiones
+
+- Disponible para descargar [aquí](Resumen.pdf) un PDF resumen con la presentación de los datos, los resultados y conclusiones.
 
 
-## Resultados, conclusiones y recomendaciones
+## Próximos pasos
 
+- Crear una plataforma de consulta usando streamlit, que incluya un mapa de calor con los resultados de beneficios por región.
+- Dedicar más tiempo a mejorar los resultados de los modelos de regresión.
+- Crear un modelo de clustering que no incluya a la variable "Profit".
 
-
-- Una explicación completa de las métricas y las representaciones gráficas del modelo se pueden consultar en el Notebook [Modelo 5/5-5_Modelos](notebooks/modelo5/5-5_Modelos.ipynb).
-
-- De la misma manera, disponible un PDF resumen con la presentación del problema, los datos, resultados, el modelo elegido y recomendaciones basadas en datos. Disponible para descarga [aquí](Resumen.pdf).
-
-- Para realizar una predicción, tras copiar el repositorio, entra en la carpeta `flask`, y ejecuta desde la terminal el archivo `.py` disponible: 
-   ```sh
-   python main.py
-   ```
-
-- Repite el proceso entrando en la carpeta `streamlit`, y ejecuta desde la terminal el archivo `.py` disponible: 
-   ```sh
-   streamlit run main.py
-   ```
-
-<div style="text-align: center;">
-    <img src="images/streamlit.png" width="300" alt="streamlit">
-</div>
 
 ## Autor
 
