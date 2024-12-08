@@ -717,6 +717,7 @@ def filtrar_outliers(dataframe, porcentaje, drop_indices=False, drop_columnas=Tr
 
     if drop_columnas:
         dataframe.drop(columns = dataframe.filter(like="outliers").columns, inplace=True)
+        df_filtrado.drop(columns = df_filtrado.filter(like="outliers").columns, inplace=True)
 
     return dataframe, df_filtrado
 

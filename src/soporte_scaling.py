@@ -13,9 +13,12 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
+import pandas as pd
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
+
 def aplicar_escaladores(df, columnas, escaladores, return_scaler=False):
     """
-    Aplica múltiples escaladores a columnas específicas de un DataFrame y devuelve el DataFrame modificado.
+    Aplica múltiples escaladores a columnas específicas de un DataFrame y devuelve el DataFrame completo.
     Puede opcionalmente devolver el primer escalador utilizado.
 
     Parámetros:
@@ -25,8 +28,7 @@ def aplicar_escaladores(df, columnas, escaladores, return_scaler=False):
     - return_scaler: Booleano, si es True devuelve también el primer escalador utilizado.
 
     Retorna:
-    - df_escalado: DataFrame con las columnas escaladas añadidas, con nombres de columnas que incluyen 
-                   el sufijo correspondiente al nombre del escalador.
+    - df_escalado: DataFrame completo con las columnas escaladas añadidas, con nombres de columnas originales si return_scaler es True.
     - (Opcional) primer_escalador: El primer escalador utilizado para la transformación, si return_scaler=True.
     """
     # Crear una copia del DataFrame para no modificar el original
@@ -39,12 +41,9 @@ def aplicar_escaladores(df, columnas, escaladores, return_scaler=False):
         # Ajustar y transformar las columnas seleccionadas
         datos_escalados = escalador.fit_transform(df[columnas])
         
-        # Generar nombres de columnas basados en el nombre del escalador
-        nombre_escalador = escalador.__class__.__name__.replace("Scaler", "").lower()
-        nuevas_columnas = [f"{col}_{nombre_escalador}" for col in columnas]
-        
         # Añadir las columnas escaladas al DataFrame
-        df_escalado[nuevas_columnas] = datos_escalados
+        for j, col in enumerate(columnas):
+            df_escalado[col] = datos_escalados[:, j]
 
         # Guardar el primer escalador utilizado
         if i == 0:
@@ -59,7 +58,7 @@ def aplicar_escaladores(df, columnas, escaladores, return_scaler=False):
 def graficar_escaladores(df, variables_originales, variables_escaladas):
     """
     Genera gráficos comparativos (boxplots e histogramas) donde cada fila corresponde a una variable original
-    y cada columna incluye la variable original y sus versiones escaladas.
+    y cada fila tiene 5 gráficos: el gráfico original y 4 versiones escaladas.
 
     Parámetros:
     - df (pd.DataFrame): El DataFrame que contiene las variables originales y escaladas.
@@ -88,16 +87,26 @@ def graficar_escaladores(df, variables_originales, variables_escaladas):
         # Filtrar las variables escaladas correspondientes
         escaladas = [col for col in variables_escaladas if variable in col]
 
+        # Asegurar que haya exactamente 4 variables escaladas para cada variable original
+        if len(escaladas) < 4:
+            escaladas.extend([None] * (4 - len(escaladas)))
+
         # Boxplots (primera fila por variable)
-        for col in [variable] + escaladas:
-            sns.boxplot(x=col, data=df, ax=axes[current_plot])
-            axes[current_plot].set_title(f"Boxplot: {col}")
+        for col in [variable] + escaladas[:4]:
+            if col is not None:
+                sns.boxplot(x=col, data=df, ax=axes[current_plot])
+                axes[current_plot].set_title(f"Boxplot: {col}")
+            else:
+                axes[current_plot].axis('off')  # Desactivar el eje si no hay suficiente variable escalada
             current_plot += 1
 
         # Histogramas (segunda fila por variable)
-        for col in [variable] + escaladas:
-            sns.histplot(x=col, data=df, ax=axes[current_plot])
-            axes[current_plot].set_title(f"Histograma: {col}")
+        for col in [variable] + escaladas[:4]:
+            if col is not None:
+                sns.histplot(x=col, data=df, ax=axes[current_plot])
+                axes[current_plot].set_title(f"Histograma: {col}")
+            else:
+                axes[current_plot].axis('off')  # Desactivar el eje si no hay suficiente variable escalada
             current_plot += 1
 
     # Ajustar diseño
