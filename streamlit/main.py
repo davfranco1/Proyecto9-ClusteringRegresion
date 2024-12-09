@@ -20,20 +20,20 @@ st.write("Esta aplicación permite predecir el beneficio de una venta basándono
 
 # Mostrar una imagen llamativa
 st.image(
-    "../images/header.png",  # URL de la imagen
+    "../images/header.jpg",  # URL de la imagen
     #caption="",
     use_container_width=True,
 )
 
 # Cargar los modelos y transformadores entrenados
 def load_models():
-    with open('../../../../transformers/cluster0_encoder.pkl', 'rb') as f:
+    with open('../transformers/cluster0_encoder.pkl', 'rb') as f:
         encoder = pickle.load(f)
 
-    with open('../../../../transformers/cluster0_scaler.pkl', 'rb') as f:
+    with open('../transformers/cluster0_scaler.pkl', 'rb') as f:
         scaler = pickle.load(f)
 
-    with open('../../../../transformers/cluster0_model.pkl', 'rb') as f:
+    with open('../transformers/cluster0_model.pkl', 'rb') as f:
         model = pickle.load(f)
 
     return encoder, scaler, model
@@ -41,7 +41,7 @@ def load_models():
 encoder, scaler, model = load_models()
 
 # Formularios de entrada
-st.header("🔧 Características de la venta")
+st.header("🔧 Características de la operación")
 col1, col2 = st.columns(2)
 
 with col1:
