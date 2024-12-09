@@ -1,6 +1,6 @@
 # Proyecto 9: Clustering y Modelos de Regresión
 
-![imagen](images/header.png)
+![imagen](images/header.jpg)
 
 
 ## Planteamiento del problema 📦📊
@@ -51,6 +51,7 @@ El proyecto está construido de la siguiente manera:
   - `3_Outliers`
   - `4_Estandarización`
   - `5_Modelos`
+  - `6_Predicciones` (sólo en Modelo 1 del Cluster 0)
 
 - **src/**: Carpeta que contiene los archivos `.py`, con las funciones y variables utilizadas en los distintos notebooks.
 
