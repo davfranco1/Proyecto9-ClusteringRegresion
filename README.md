@@ -41,8 +41,6 @@ El proyecto está construido de la siguiente manera:
 
 - **datos/**: Carpeta que contiene archivos `.csv`, `.json` o `.pkl` generados durante la captura y tratamiento de los datos.
 
-- **flask/**: Carpeta que contiene un archivo `.py` para la ejecución de la API de *Flask*. Dentro también un Jupyter Notebook para pruebas de la API.
-
 - **images/**: Carpeta que contiene archivos de imagen generados durante la ejecución del código o de fuentes externas.
 
 - **notebooks/**: Carpeta que contiene los archivos `.ipynb` utilizados en el preprocesamiento y modelado de los datos. Dentro, dos carpetas, una para los modelos de *clustering* y otra para los de *regresión*. Dentro de "regresión", están numerados para su ejecución secuencial, y contenidos dentro de carpetas, una para cada modelo, conteniendo cada una de ellas:
